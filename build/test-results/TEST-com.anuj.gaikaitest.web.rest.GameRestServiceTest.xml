@@ -1,0 +1,7 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.anuj.gaikaitest.web.rest.GameRestServiceTest" tests="1" failures="0" errors="0" timestamp="2014-02-04T06:04:05" hostname="anujku-THINK" time="1.309">
+  <properties/>
+  <testcase name="testGetTopGamesRestService" classname="com.anuj.gaikaitest.web.rest.GameRestServiceTest" time="1.309"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

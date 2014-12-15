@@ -1,0 +1,88 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'tomcat'
+apply plugin: 'war'
+apply plugin: 'tomcat'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+buildscript {
+  repositories {
+    mavenCentral()
+    maven {
+      url "http://download.java.net/maven/2"
+    }
+  }
+
+  dependencies {
+    classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:0.9.8'
+  }
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def tomcatVersion = '7.0.42'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+      exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+
+    compile 'com.google.code.gson:gson:2.2.4'            
+    compile 'org.jsoup:jsoup:1.7.3'
+    compile 'com.sun.jersey:jersey-core:1.18'
+    compile 'com.sun.jersey:jersey-server:1.18'
+    compile 'com.sun.jersey:jersey-client:1.18'
+    compile 'com.sun.jersey:jersey-servlet:1.18'
+    compile 'org.codehaus.jettison:jettison:1.0.1'
+    compile 'javax.ws.rs:jsr311-api:0.11'
+    compile 'javax:javaee-api:7.0'
+    compile 'log4j:log4j:1.2.17'
+       
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+ 
+  // set a system property for the test JVM(s)
+  systemProperty 'some.prop', 'value'
+
+  // explicitly include or exclude tests
+  include 'com/anuj/**'
+
+  // show standard out and standard error of the test JVM(s) on the console
+  testLogging.showStandardStreams = true
+
+  // set heap size for the test JVM(s)
+  minHeapSize = "128m"
+  maxHeapSize = "512m"
+
+  // set JVM arguments for the test JVM(s)
+  jvmArgs '-XX:MaxPermSize=256m'
+
+  // listen to events in the test execution lifecycle
+  beforeTest { descriptor ->
+     logger.lifecycle("Running test: " + descriptor)
+  }
+
+  // listen to standard out and standard error of the test JVM(s)
+  onOutput { descriptor, event ->
+     logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+  }
+  
+  // Generate reports
+  reports.junitXml.destination = "$buildDir/test-results/GameRestServiceTest"
+  reports.html.destination = "$buildDir/test-results/GameRestServiceTest"
+  
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

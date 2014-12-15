@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.anuj.gaikaitest.web.rest.GameRestServiceTest" tests="3" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="anujku-THINK" time="1.39165776818E9">
+  <properties/>
+  <testcase name="testGetGameInfoNotPresent" classname="com.anuj.gaikaitest.web.rest.GameRestServiceTest" time="3.205"/>
+  <testcase name="testGetGameInfo" classname="com.anuj.gaikaitest.web.rest.GameRestServiceTest" time="0.79"/>
+  <testcase name="testGetTopGames" classname="com.anuj.gaikaitest.web.rest.GameRestServiceTest" time="0.676"/>
+  <system-out><![CDATA[0 [Test worker] DEBUG com.anuj.gaikaitest.web.rest.GameRestServiceTest  - **** Test case : testGetGameInfoNotPresent()**** 
+3009 [Test worker] DEBUG com.anuj.gaikaitest.web.rest.GameRestServiceTest  - **** Test case : testGetGameInfo() **** 
+3009 [Test worker] DEBUG com.anuj.gaikaitest.web.rest.GameRestServiceTest  - **** Test case : testGetGameInfo() **** 
+3686 [Test worker] DEBUG com.anuj.gaikaitest.web.rest.GameRestServiceTest  - **** Test case : testGetTopGames() **** 
+3686 [Test worker] DEBUG com.anuj.gaikaitest.web.rest.GameRestServiceTest  - **** Test case : testGetTopGames() **** 
+3686 [Test worker] DEBUG com.anuj.gaikaitest.web.rest.GameRestServiceTest  - **** Test case : testGetTopGames() **** 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
